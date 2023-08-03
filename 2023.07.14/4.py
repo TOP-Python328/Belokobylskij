@@ -1,18 +1,26 @@
+# КОММЕНТАРИЙ: не ходим, только сравниваем цвет клеток
 user_coord_1 = input('Введите координату откуда ходим:').lower()
 user_coord_2 = input('Введите координату куда ходим:').lower()
-coord_y_1 = int(user_coord_1[1])  
-coord_x_1 = user_coord_1[0]
 
-coord_y_2 = int(user_coord_2[1])
-coord_x_2 = user_coord_2[0]
+# ИСПРАВИТЬ: не обязательно смещать индекс символа 'a' и последующих
 chees_coord_x = '-abcdefgh'
+
+coord_y_1 = int(user_coord_1[1])
+coord_y_2 = int(user_coord_2[1])
+
+# УДАЛИТЬ: эти переменные используются каждая только единожды — в их создании нет необходимости
+coord_x_1 = user_coord_1[0]
+coord_x_2 = user_coord_2[0]
+
 num_coord_x_1 = chees_coord_x.index(coord_x_1)
 num_coord_x_2 = chees_coord_x.index(coord_x_2)
 
+# ИСПРАВИТЬ: упростите логическое выражение проанализировав свойства сумм чётных и нечётных чисел
 if (num_coord_x_1 + coord_y_1) % 2 == 0 and (num_coord_x_2 + coord_y_2) % 2 == 0 or (num_coord_x_1 + coord_y_1) % 2 != 0 and (num_coord_x_2 + coord_y_2) % 2 != 0:
-    print('Одинаковые')    
+    print('Одинаковые')
 else:
-    print('Разные')    
+    print('Разные')
+
 
 # Введите координату откуда ходим:b1
 # Введите координату куда ходим:f3
@@ -21,3 +29,9 @@ else:
 # Введите координату откуда ходим:d3
 # Введите координату куда ходим:h8
 # Разные
+
+
+# ИТОГ: очень хорошо — 4/6
+
+
+# КОММЕНТАРИЙ: моделирование шахматной доски: https://disk.yandex.ru/i/m-krUt3xbY8Y7g
