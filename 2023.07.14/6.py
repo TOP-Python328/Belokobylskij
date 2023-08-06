@@ -1,26 +1,45 @@
-user_coord_1 = input('Король. Введите координату откуда ходим:').lower()
-user_coord_2 = input('Введите координату куда ходим:').lower()
+user_coord_1 = input('Король. Введите координату откуда ходим: ').lower()
+user_coord_2 = input('Введите координату куда ходим: ').lower()
+list_digit  = [-1, 0, 1]
+coord_y = int(user_coord_1[1]) - int(user_coord_2[1])
+coord_x = ord(user_coord_1[0]) - ord(user_coord_2[0])
 
-chees_coord_x = '-abcdefgh'
-
-coord_y_1 = int(user_coord_1[1])
-coord_y_2 = int(user_coord_2[1])
-
-# УДАЛИТЬ: эти переменные используются каждая только единожды — в их создании нет необходимости
-coord_x_1 = user_coord_1[0]
-coord_x_2 = user_coord_2[0]
-
-a = chees_coord_x.index(coord_x_1)
-b = chees_coord_x.index(coord_x_2)
-
-# ИСПРАВИТЬ: упростите логические выражения (в том числе избавившись от вложенного) используя модуль числа и неравенства
-if chees_coord_x[a] == chees_coord_x[b] or chees_coord_x[a-1] == chees_coord_x[b] or chees_coord_x[a+1] == chees_coord_x[b]:
-    if coord_y_1 - coord_y_2 == -1 or coord_y_1 - coord_y_2 == 0 or coord_y_1 - coord_y_2 == 1:
-        print('Ход верный.')
-    else:
-        print('Ход не верный.')
+if coord_y in list_digit and coord_x in list_digit:
+    print('Ход верный.')
 else:
     print('Ход не верный.')
+    
+# Король. Введите координату откуда ходим: a1
+# Введите координату куда ходим: h1
+# Ход не верный.
+
+# Король. Введите координату откуда ходим: e4
+# Введите координату куда ходим: d5
+# Ход верный.
+# ------------------------------------------------------------
+# user_coord_1 = input('Король. Введите координату откуда ходим:').lower()
+# user_coord_2 = input('Введите координату куда ходим:').lower()
+
+# chees_coord_x = '-abcdefgh'
+
+# coord_y_1 = int(user_coord_1[1])
+# coord_y_2 = int(user_coord_2[1])
+
+# УДАЛИТЬ: эти переменные используются каждая только единожды — в их создании нет необходимости
+# coord_x_1 = user_coord_1[0]
+# coord_x_2 = user_coord_2[0]
+
+# a = chees_coord_x.index(coord_x_1)
+# b = chees_coord_x.index(coord_x_2)
+
+# ИСПРАВИТЬ: упростите логические выражения (в том числе избавившись от вложенного) используя модуль числа и неравенства
+# if chees_coord_x[a] == chees_coord_x[b] or chees_coord_x[a-1] == chees_coord_x[b] or chees_coord_x[a+1] == chees_coord_x[b]:
+    # if coord_y_1 - coord_y_2 == -1 or coord_y_1 - coord_y_2 == 0 or coord_y_1 - coord_y_2 == 1:
+        # print('Ход верный.')
+    # else:
+        # print('Ход не верный.')
+# else:
+    # print('Ход не верный.')
 
 
 # Король. Введите координату откуда ходим:c3
