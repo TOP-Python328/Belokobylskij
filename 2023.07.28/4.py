@@ -4,10 +4,14 @@ while True:
     if not user_inp:
         break
     # ИСПОЛЬЗОВАТЬ везде: PEP 8 не рекомендует записывать тело блока в одну строчку с заголовком блока
+    # ИСПРАВИТЬ: else можно опустить
     else:
         list_user_inp += [user_inp.split(' ')]
 
-dict_inp = {key: val for key, val in list_user_inp}
+# ИСПОЛЬЗОВАТЬ: когда есть итерируемый объект, элементами которого являются итерируемые объекты с ровно двумя элементами в каждом, то имеет смысл создание словаря с помощью функции dict()
+# dict_inp = {key: val for key, val in list_user_inp}
+dict_inp = dict(list_user_inp)
+
 user_inp = input('Введите текст: ')
 result = '! value error !'
 for key, val in dict_inp.items():
@@ -37,3 +41,5 @@ print(result)
 # Введите текст: ER_CANT_OPEN_FILE
 # ! value error !
 
+
+# ИТОГ: отлично — 3/3
