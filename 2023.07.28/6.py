@@ -8,23 +8,24 @@ result = 'Нет'
 if 'b' in user_inp:
     for pref, num in list_user_inp:
         if pref in prefix:
-            set_user_num = {dig for dig in num}    
+            set_user_num = {dig for dig in num}
     for el in set_user_num:
         if set(el) < binary_set:
-            result = 'Да' 
+            result = 'Да'
 else:
     set_user_num = {dig for dig in user_inp}
     for el in set_user_num:
         if set(el) <= binary_set:
             result = 'Да'
 print(result)
+
+
 # Введите число в двоичной системе счисления: 0101
 # Да
 # Введите число в двоичной системе счисления: 0b11001
 # Да
 # Введите число в двоичной системе счисления: b11
 # Да
-
 # Введите число в двоичной системе счисления: 1b01011
 # Да
- 
+
