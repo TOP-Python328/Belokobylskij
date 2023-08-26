@@ -6,17 +6,21 @@ while True:
     user_inp = input('Напишите фрукт: ')
     if user_inp in stop_list:
         break
+    # ИСПРАВИТЬ: else можно опустить
     else:
         list_fruits += [user_inp]
-len_list_fruits = len(list_fruits)                
 
+# ИСПРАВИТЬ: всю условную конструкцию ниже можно заменить на два вызова join() с двумя срезами [:-2] и [-2:] — проверьте, что именно эти срезы возвращают для последовательностей разной длины
+len_list_fruits = len(list_fruits)
 if len_list_fruits == 1:
     result_list += list_fruits[0]
 elif len_list_fruits == 2:
     result_list += ' и '.join(list_fruits)
 elif len_list_fruits > 2:
     result_list += ', '.join(list_fruits[:-1]) + ' и ' + list_fruits[-1]
-print(result_list)    
+
+print(result_list)
+
 
 # Напишите фрукт: яблоко
 # Напишите фрукт:
@@ -39,3 +43,6 @@ print(result_list)
 # Напишите фрукт: киви
 # Напишите фрукт:
 # яблоко, груша, банан и киви
+
+
+# ИТОГ: хорошо, но можно лучше — 3/5
