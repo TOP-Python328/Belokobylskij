@@ -5,7 +5,6 @@ from csv import writer, reader
 class CountableNouns:
     """Предоставляет интерфейс для работы с файловой базой существительных"""
     db_path = Path(path[0]) / 'words.csv'
-    
     words = dict()
     with open(db_path, encoding='utf-8') as csvfile:
         words_csv = reader(csvfile)
@@ -14,7 +13,9 @@ class CountableNouns:
   
     def pick(number: int, word: str)-> str:
         """Возвращает согласованное с переданным числом существительное"""
-        if  number % 10 == 1:
+        if number % 100 in [11, 12, 13, 14]:
+            return CountableNouns.words[word][1]
+        elif  number % 10 == 1:
             return word
         elif number % 10 in [2, 3, 4]:
             if word not in CountableNouns.words:
