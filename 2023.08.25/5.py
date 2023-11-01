@@ -1,5 +1,4 @@
-# У меня имеется вопрос!  Я не пойму как быть с значением по умолчанию, а конкретно не догоню как сделать чтоб его небыло в выводе если мы не используем это самое значение.
-def logger (func: 'function') -> 'function':
+def logger(func: 'function') -> 'function':
     """Ведет журнал вызовов функций в стандартном потоке вывода + перехват исключений и их вывод"""
     def wraper(*args, **kwargs):
         arguments = (str(el) for el in args[:func.__code__.co_argcount])
@@ -23,9 +22,12 @@ def logger (func: 'function') -> 'function':
             print(str_func + f'{res}')
             return res    
     return wraper        
-            
-            
-            
+
+
+# У меня имеется вопрос!  Я не пойму как быть с значением по умолчанию, а конкретно не догоню как сделать чтоб его небыло в выводе если мы не используем это самое значение.
+# КОММЕНТАРИЙ: считать уже использованные значения (см. пример)
+
+
 def div_round(num1, num2: int = 2, *, digits=0):
     return round(num1 / num2, digits)
 div_round = logger(div_round)    
@@ -45,3 +47,6 @@ div_round = logger(div_round)
 # >>> div_round(14,0,digits= 2)
 # div_round(14, 0, digits= 2) -> ZeroDivisionError: division by zero
 # >>>
+
+
+# ИТОГ: неплохо, доработайте — 4/7

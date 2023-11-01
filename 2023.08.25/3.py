@@ -1,22 +1,23 @@
-def math_function_resolver (
-                                    func: 'function',
-                                    *numb: float, 
-                                    string: bool = False
-) -> list [float | str]:
-                                    
+def math_function_resolver(
+        func: 'function',
+        *numb: float,
+        string: bool = False
+) -> list[float | str]:
     """Принимает позиционные аргументы: любую математическую функцию с одним аргументом и число или произвольный кортеж чисел и возвращает вычисленное значение мат.функцией для переданного в нее числа или кортежа чисел."""
-    
     result = []
     for el in numb:
+        # ИСПРАВИТЬ: многовато лишних действий
         if string:
             result.append(str(round(float(func(el)),2)))
         else:    
             result.append(round(float(func(el)),2)) 
     return result
-    
-# Я не совсем понял на счет передаваемой в аргументы функии. Я правильно сделал что взял из вашего примера или надо было написать свою?    
 
- # >>> math_function_resolver(lambda x: 2.72**x, *range(1, 10),string=True)
+# Я не совсем понял на счет передаваемой в аргументы функии. Я правильно сделал что взял из вашего примера или надо было написать свою?
+# КОММЕНТАРИЙ: функции, передаваемые в качестве аргументов, нужны для тестов: в данном случае моих достаточно, но на тестах всегда можно попрактиковаться свободно
+
+
+# >>> math_function_resolver(lambda x: 2.72**x, *range(1, 10),string=True)
 # ['2.72', '7.4', '20.12', '54.74', '148.88', '404.96', '1101.49', '2996.07', '8149.3']
 
 # >>> math_function_resolver(lambda x: 2*x + 1, *range(1, 10),string=True)
@@ -30,3 +31,6 @@ def math_function_resolver (
 
 # >>> math_function_resolver(lambda x: 0.5*x + 2, *range(1, 10))
 # [2.5, 3.0, 3.5, 4.0, 4.5, 5.0, 5.5, 6.0, 6.5]
+
+
+# ИТОГ: хорошо, но можно лучше — 2/3
